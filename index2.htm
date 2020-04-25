@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+       
+                $.post("http://localhost:8080/api/kidsdbs",
+                    {
+                        name: "kanchan",
+                        chores: "roti",
+                        amount: "5"
+                    },
+                    function (data, status) {
+                        alert("Data: " + data + "\nStatus: " + status);
+                    });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <form><br>
+        Enter your First Name: <input type="text" id="name" /><br><br>
+        Enter your Last Name: <input type="text" id="chore" /><br><br>
+        Enter your Last Name: <input type="text" id="amount" /><br><br>
+        <input type="submit" value="Submit" onclick="formdata()" /><br>
+    </form>
+
+    <button>Add Chore</button>
+
+</body>
+
+</html>
