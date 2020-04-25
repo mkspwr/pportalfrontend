@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <title>Login Page</title>
+    <header>
+        <link rel="stylesheet" type="text/css"href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css"href="css/pportal.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+       
+    </header>
+    <body>
+        <div class="container">
+
+<h2>Login page for parent portal</h2>
+
+<p>Please input a four digit number to login:</p>
+
+<input id="numb">
+
+<button type="button" onclick="myFunction()">Submit</button>
+
+<p id="demo"></p>
+</div>
+</body>
+
+<script>
+function myFunction() {
+  var x, text;
+
+  // Get the value of the input field with id="numb"
+  x = document.getElementById("numb").value;
+
+  // If x is Not a Number or less than one or greater than 10
+  if (isNaN(x) || x < 1000 || x > 10000) {
+    text = "Input not valid";
+  } else {
+    window.location.href="pportal.html";
+  }
+  document.getElementById("demo").innerHTML = text;
+}
+</script>
+
+</body>
+</html> 
