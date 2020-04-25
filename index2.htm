@@ -5,13 +5,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
+            
+ 
+
             $("button").click(function () {
-       
+           var varname =  document.getElementById("name").value;
+           var varchore =  document.getElementById("chore").value;
+           var varamount =  document.getElementById("amount").value;
+
                 $.post("http://localhost:8080/api/kidsdbs",
                     {
-                        name: "kanchan",
-                        chores: "roti",
-                        amount: "5"
+                        name: varname,
+                        chores: varchore,
+                        amount: varamount
                     },
                     function (data, status) {
                         alert("Data: " + data + "\nStatus: " + status);
