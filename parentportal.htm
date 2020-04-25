@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html>
-<title>PPortal</title>
-<header>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/pportal.css">
+
+<head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-
     <script>
         $(document).ready(function () {
+            
+ 
+
             $("button").click(function () {
-                var x = document.getElementById("sel1").value;
-                var y = document.getElementById("sel2").value;
-                var z = document.getElementById("sel3").value;
+           var varname =  document.getElementById("name").value;
+           var varchore =  document.getElementById("chore").value;
+           var varamount =  document.getElementById("amount").value;
 
                 $.post("http://localhost:8080/api/kidsdbs",
                     {
-                        name: x,
-                        chores: y,
-                        amount: z
+                        name: varname,
+                        chores: varchore,
+                        amount: varamount
                     },
                     function (data, status) {
                         alert("Data: " + data + "\nStatus: " + status);
@@ -27,159 +25,18 @@
             });
         });
     </script>
-</header>
+</head>
 
 <body>
-    <div class="container">
-        <h2>Parent Portal</h2> <a href="balance.html"><button id="b1" type="button">BALANCE</button></a>
-        <button id="myBtn">Time</button>
+    <form><br>
+        Enter your First Name: <input type="text" id="name" /><br><br>
+        Enter your Last Name: <input type="text" id="chore" /><br><br>
+        Enter your Last Name: <input type="text" id="amount" /><br><br>
+        <input type="submit" value="Submit" onclick="formdata()" /><br>
+    </form>
 
-        <p id="demo"></p>
-        <p>Finishing chores, earning some bucks</p>
-        <form><br>
-
-            <div class="form-group">
-                <label for="sel1">Select Name:</label>
-                <select class="form-control" id="sel1">
-                    <option>Shreya</option>
-                    <option>Vihaan</option>
-
-                </select>
-                <br>
-                <label for="sel2">Select chore or mulitiple chores:</label>
-                <select multiple class="form-control" id="sel2">
-                    <option>dishes</option>
-                    <option>cleaning</option>
-                    <option>cleaning her/his own roon</option>
-                    <option>yard work</option>
-                    <option>folding cloths</option>
-                    <option>other work</option>
-                </select>
-                <br>
-                <label for="sel1">Select money to be assigned in $:</label>
-                <select class="form-control" id="sel3">
-                    <option>10</option>
-                    <option>8</option>
-                    <option>6</option>
-                    <option>4</option>
-
-                </select>
-            </div>
-            <p><input id="startOver" type="reset" value="Start over"></input></p>
-
-
-        </form>
-
-        <button id="bb1" type="button" onclick="getSelectedValue1()">assign1</button>
-        <button id="bb2" type="button" onclick="getSelectedValue2()">assign2</button>
-        <button id="bb3" type="button" onclick="getSelectedValue3()">assign3</button>
-        <button id="bb4" type="button" onclick="getSelectedValue4()">assign4</button>
-
-        <p><span id="box1"> </span> <span id="box4"></span> <span id="box2"></span> <span id="box5"></span> <span
-                id="box3"></span>
-            <span> </span><button type="button" onclick="funDone1()">Assign_1_done</button>
-            <p><span id="box11"> </span> <span id="box6"></span> <span id="box22"></span> <span id="box7"></span> <span
-                    id="box33"></span>
-                <span> </span><button type="button" onclick="funDone2()">Assign_2_done</button>
-
-                <p><span id="box111"> </span> <span id="box8"></span> <span id="box222"></span> <span id="box9"></span>
-                    <span id="box333"></span>
-                    <span> </span><button type="button" onclick="funDone3()">Assign_3_done</button>
-
-                    <p><span id="box1111"> </span> <span id="box10"></span> <span id="box2222"></span> <span
-                            id="box01"></span> <span id="box3333"></span>
-                        <span> </span><button type="button" onclick="funDone4()">Assign_4_done</button>
-
-                    </p>
-                    <div id="smile" onmouseover="mOver(this)" onmouseout="mOut(this)"
-                        style="background-color:rgb(145, 206, 117);width:100px;height:30px;padding:5px;">
-                        :-)</div>
-    </div>
-    <script>
-        function getSelectedValue1() {
-            var x = document.getElementById("sel1").value;
-            document.getElementById("box1").innerHTML = x;
-            document.getElementById("box4").innerHTML = "is assigned for";
-
-            var y = document.getElementById("sel2").value;
-            document.getElementById("box2").innerHTML = y;
-            document.getElementById("box5").innerHTML = "for $";
-
-            var z = document.getElementById("sel3").value;
-            document.getElementById("box3").innerHTML = z;
-
-            document.getElementById("bb1").style.color = "yellow";
-
-        }
-
-        function getSelectedValue2() {
-            var x = document.getElementById("sel1").value;
-            document.getElementById("box11").innerHTML = x;
-            document.getElementById("box6").innerHTML = "is assigned for";
-
-
-            var y = document.getElementById("sel2").value;
-            document.getElementById("box22").innerHTML = y;
-            document.getElementById("box7").innerHTML = "for $";
-
-            var z = document.getElementById("sel3").value;
-            document.getElementById("box33").innerHTML = z;
-
-            document.getElementById("bb2").style.color = "yellow";
-
-        }
-
-        function getSelectedValue3() {
-            var x = document.getElementById("sel1").value;
-            document.getElementById("box111").innerHTML = x;
-            document.getElementById("box8").innerHTML = "is assigned for";
-
-
-            var y = document.getElementById("sel2").value;
-            document.getElementById("box222").innerHTML = y;
-            document.getElementById("box9").innerHTML = "for $";
-
-            var z = document.getElementById("sel3").value;
-            document.getElementById("box333").innerHTML = z;
-            document.getElementById("bb3").style.color = "yellow";
-
-        }
-
-        function getSelectedValue4() {
-            var x = document.getElementById("sel1").value;
-            document.getElementById("box1111").innerHTML = x;
-            document.getElementById("box10").innerHTML = "is assigned for";
-
-
-            var y = document.getElementById("sel2").value;
-            document.getElementById("box2222").innerHTML = y;
-            document.getElementById("box01").innerHTML = "for $";
-
-            var z = document.getElementById("sel3").value;
-            document.getElementById("box3333").innerHTML = z;
-            document.getElementById("bb4").style.color = "yellow";
-
-        }
-
-        document.getElementById("myBtn").addEventListener("click", displayDate);
-
-        function displayDate() {
-            document.getElementById("demo").innerHTML = Date();
-        }
-
-        function mOver(obj) {
-            obj.innerHTML = "Thank You"
-        }
-
-        function mOut(obj) {
-            obj.innerHTML = ":-)"
-        }
-    </script>
-    </script>
-
-    </div>
+    <button>Add Chore</button>
 
 </body>
-<script src="js/pportal.js"></script>
 
 </html>
