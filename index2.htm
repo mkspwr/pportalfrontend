@@ -6,14 +6,17 @@
     <script>
         $(document).ready(function () {
             $("button").click(function() {
-                getSelectedValue1()
+                var x = document.getElementById("sel1").value;
+                var y = document.getElementById("sel2").value;
+                var z = document.getElementById("sel3").value;
 
                 $.post("http://localhost:8080/api/kidsdbs",
+                
                     {
                         
-                        name: "kanchan",
-                        chores: "roti",
-                        amount: "5"
+                        name: "x" ,
+                        chores: "y",
+                        amount: "z"
                     },
                     function (data, status) {
                         alert("Data: " + data + "\nStatus: " + status);
